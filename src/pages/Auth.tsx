@@ -55,11 +55,6 @@ const Auth = () => {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="mb-4 p-4 bg-muted rounded-lg border">
-            <p className="text-sm font-medium mb-2">Default Admin Credentials:</p>
-            <p className="text-sm text-muted-foreground">Email: admin@college.edu</p>
-            <p className="text-sm text-muted-foreground">Password: admin123</p>
-          </div>
           <form onSubmit={handleLogin} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
