@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -14,23 +14,6 @@ const Auth = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
-
-  useEffect(() => {
-    // Create admin account on first load if it doesn't exist
-    const createAdminIfNeeded = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) {
-        const { error } = await supabase.auth.signUp({
-          email: "admin@college.edu",
-          password: "admin123",
-        });
-        if (!error) {
-          console.log("Admin account created");
-        }
-      }
-    };
-    createAdminIfNeeded();
-  }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
